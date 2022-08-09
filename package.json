@@ -1,0 +1,44 @@
+{
+  "name": "hybrid-api-http-grpc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start:dev": "nodemon",
+    "start": "node dist/index.js",
+    "build": "rimraf -rf ./dist && tsc",
+    "experiment": "ts-node ./protobuf-test/protosVsJsons.ts",
+    "compile-protos": "rimraf -rf src/infra/grpc/protos/*.ts && grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./src/infra/ --ts_out=generate_package_definition:./src/infra/ --grpc_out=grpc_js:./src/infra ./protos/*.proto"
+  },
+  "keywords": [],
+  "author": "Lino Mota",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/express-pino-logger": "^4.0.3",
+    "@types/google-protobuf": "^3.15.6",
+    "@types/sqlite3": "^3.1.8",
+    "grpc-tools": "^1.11.2",
+    "grpc_tools_node_protoc_ts": "^5.3.2",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.8",
+    "@grpc/proto-loader": "^0.7.0",
+    "@types/uuid": "^8.3.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-pino-logger": "^7.0.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.11",
+    "ts-proto": "^1.121.1",
+    "tsyringe": "^4.7.0",
+    "uuid": "^8.3.2"
+  }
+}
